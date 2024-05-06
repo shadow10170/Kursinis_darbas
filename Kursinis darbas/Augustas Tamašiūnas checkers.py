@@ -66,8 +66,12 @@ class Board:
                 self.white_kings+=1
             else:
                 self.red_kings+=1
+
     def get_piece(self,row,col):
         return self.board[row][col]
+    
+    def evaluate(self):
+        return self.white_left - self.red_left + (self.white_kings * 0.5 - self.red_kings * 0.5)
     
     def get_valid_moves(self, piece):
         moves = {}
